@@ -1,0 +1,142 @@
+.mainPageHolder {
+  margin-top: 200px;
+
+  .title {
+    margin-bottom: 40px;
+  }
+}
+
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 110%;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #E0E0E0;
+}
+
+.groups {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  list-style: none;
+  padding-left: 0px;
+
+  li {
+    margin: 10px;
+    display: grid;
+    text-align: left;
+
+    &:hover {
+      > a:last-child {
+        filter: drop-shadow(1px 1px 17px #EB6609);
+      }
+    }
+
+    a {
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.group {
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110%;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #E0E0E0;
+}
+
+.cardTitle {
+  font-family: 'Comic Sans MS';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 110%;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #E0E0E0;
+}
+
+.cardTable {
+  max-width: 1400px;
+  width: 100%;
+  margin: auto;
+
+  &__row {
+    width: 100%;
+    padding: 20px 0;
+    margin-bottom: 100px;
+    display: flex;
+    border: 2px solid;
+    border-image: linear-gradient(to right , #EB6609, #FFD533);
+    border-image-slice: 1;
+
+    > div {
+      padding: 0 20px;
+    }
+
+    &__img, &__title, &__power {
+      border-right: 1px solid #E0E0E0;
+    }
+
+    &__img {
+      width: 25%;
+
+      img {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+      }
+    }
+
+    &__title {
+      width: 15%;
+    }
+
+    &__power {
+      width: 10%;
+    }
+
+    &__ability {
+      width: 50%;
+    }
+
+    &__title, &__power, &__ability {
+      font-family: 'Comic Sans MS';
+      font-style: normal;
+      font-size: 17px;
+      line-height: 110%;
+      text-align: center;
+      letter-spacing: 0.05em;
+      color: #E0E0E0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__row__header {
+    border: none;
+    margin-bottom: 20px;
+
+    > div {
+      border: none;
+      font-family: 'Comic Sans MS';
+      font-style: normal;
+      font-size: 19px;
+      line-height: 110%;
+      text-align: center;
+      letter-spacing: 0.05em;
+      color: #E0E0E0;
+      display: block;
+    }
+  }
+
+}

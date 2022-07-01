@@ -1,0 +1,79 @@
+.title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 110%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    color: #E0E0E0;
+    margin-bottom: 50px;
+}
+
+.tournaments {
+    width: 100%;
+    margin: auto;
+    display: inline-block;
+    border: 2px solid;
+    border-image: linear-gradient(to right , #EB6609, #FFD533);
+    border-image-slice: 1;
+    max-width: 800px;
+    padding: 0 7px;
+
+    table {
+        margin: 20px auto;
+        width: 80%;
+
+        > tr {
+            > td {
+                font-family: 'Comic Sans MS';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 110%;
+                letter-spacing: 0.05em;
+                background: linear-gradient(102.54deg, #EB6609 -24.63%, #FFD533 159.27%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-fill-color: transparent;
+                border-bottom: 1px solid #4F4F4F;
+                padding: 15px;
+
+                &:first-child {
+                    padding-left: 0;
+                    width: 33%;
+                }
+                &:last-child {
+                    width: 77%;
+                    padding-right: 0;
+                    text-align: left;
+
+                    > div {
+                        display: flex;
+                        width: 100%;
+                        align-content: flex-start;
+                        align-items: center;
+
+                        span {
+                            padding-left: 20px;
+                        }
+                    }
+                }
+            }
+
+            &:last-child {
+                > td {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
+    .scroll {
+        > div:nth-child(2) {
+            div {
+                background-color: #E0E0E0!important;
+                width: 3px!important;
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+.container {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  min-height: 60vh;
+
+  .imgHolder {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 600px;
+    width: 40%;
+    z-index: 2;
+    background: url("../public/hand-with-cards.png") 0 0 no-repeat;
+    background-size: contain;
+
+    &:before {
+      position: absolute;
+      display: block;
+      content: "";
+      background: #1D1E22;
+      filter: blur(49px);
+      transform: rotate(-30deg);
+      width: 300px;
+      height: 300px;
+      left: -115px;
+      bottom: -145px;
+    }
+  }
+
+  .textHolder {
+    position: relative;
+    z-index: 1;
+    padding-left: 40%;
+    padding-right: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    p {
+      text-align: left;
+      font-family: 'Comic Sans MS';
+      font-style: normal;
+    }
+
+    .h1 {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 120%;
+      letter-spacing: 0.07em;
+      color: #FFD533;
+      text-align: left;
+      margin: 20px 0 15px;
+    }
+
+    .p2 {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: 0.05em;
+      color: #E0E0E0;
+      margin: 5px 0 40px;
+    }
+
+    a {
+      display: block;
+      text-align: left;
+      width: 207px;
+
+      &:hover {
+        filter: drop-shadow(0 0 4px #FFD533);
+      }
+    }
+  }
+}
