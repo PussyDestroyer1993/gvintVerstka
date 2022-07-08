@@ -1,6 +1,5 @@
 import classes from '../styles/Header.module.scss'
 import Link from "next/link"
-import Logo from '../public/logo.svg'
 import {useState} from "react";
 import {useRouter} from "next/router";
 import Image from "next/image";
@@ -29,7 +28,7 @@ const Header = () => {
     return (
         <header className={classes.header}>
             <nav>
-                <Link href="/"><a className={classes.logo}><Logo/></a></Link>
+                <img className={classes.logo} src={'/external/gvintgame/logo.svg'} alt='logo' />
                 <div>
                     <Image src={`${router.pathname == '/' ? '/gvintgame' : ''}/common/gvintgame.png`} alt="gvintgame" width={"354px"} height={"53px"}/>
                     <div className={classes.menuMain}>
