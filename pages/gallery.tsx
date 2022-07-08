@@ -1,3 +1,4 @@
+import SwiperCore, {Navigation, Pagination} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import s from "../styles/gallery.module.scss";
 import {useRouter} from "next/router";
@@ -6,6 +7,8 @@ import Image from "next/image";
 
 const docs = ['gallery/1.png', 'gallery/1.png', 'gallery/1.png', 'gallery/1.png', 'gallery/1.png', 'gallery/1.png',
     'gallery/1.png', 'gallery/1.png', 'gallery/1.png', 'gallery/1.png']
+
+SwiperCore.use([Navigation, Pagination])
 
 /**
  * Страница с галереей фотографий

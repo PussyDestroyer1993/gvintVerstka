@@ -3,6 +3,7 @@ import Image from "next/image";
 import cards from "../public/Cards.json";
 import {useRouter} from "next/router";
 import GalleryPage from "../pages/gallery";
+import SwiperCore, {Navigation, Pagination} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {useState} from "react";
 import { Scrollbar } from "react-scrollbars-custom";
@@ -10,6 +11,8 @@ import { Scrollbar } from "react-scrollbars-custom";
 interface CardsProps {
     showGallery: boolean,
 }
+
+SwiperCore.use([Navigation, Pagination])
 
 /**
  * Колоды

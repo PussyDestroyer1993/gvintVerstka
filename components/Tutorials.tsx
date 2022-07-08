@@ -1,10 +1,13 @@
 import styles from '../styles/Tutorials.module.scss'
 import Image from "next/image";
 import {useEffect, useState} from "react";
+import SwiperCore, {Navigation, Pagination} from "swiper";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {useRouter} from "next/router";
 
 const docs = ['docs/doc1.png', 'docs/doc2.png', 'docs/doc3.png', 'docs/doc4.png', 'docs/doc5.png', 'docs/doc6.png']
+
+SwiperCore.use([Navigation, Pagination])
 
 /**
  * Руководство по Гвинту
