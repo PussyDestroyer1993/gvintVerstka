@@ -1,9 +1,18 @@
 .container {
-  margin: 200px 0;
+  margin: 170px 0;
+  padding-bottom: 100px;
   overflow: hidden;
 
   &__page {
     margin: 25px 0 0;
+
+    @media screen and (max-width: 1023px) {
+      margin: 80px 0 0!important;
+    }
+
+    @media screen and (max-width: 639px) {
+      margin: 40px 0 0!important;
+    }
   }
 
   .title {
@@ -15,6 +24,10 @@
     letter-spacing: 0.05em;
     color: #E0E0E0;
     margin-bottom: 50px;
+
+    @media screen and (max-width: 639px) {
+      font-size: 26px;
+    }
   }
 
   .carouselWrapper {
@@ -38,8 +51,13 @@
     .next {
       right: 29%;
     }
+
     .prev {
       left: 29%;
+      > span {
+        pointer-events: none;
+      }
+
     }
 
     .carousel {
@@ -72,6 +90,91 @@
       margin: 0;
       bottom: -100px;
       right: 30%;
+    }
+
+    @media (max-width: 1250px) {
+      .next {
+        right: 27%;
+      }
+      .prev {
+        left: 27%;
+      }
+
+      .number {
+        right: 28%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    margin: 100px 0 60px;
+    overflow: unset;
+
+    .mobileHide {
+      display: none;
+    }
+
+    &__page {
+      margin: 25px 0 0;
+    }
+
+    .carouselWrapper {
+      margin: 0;
+      flex-direction: column;
+
+      a {
+        top: unset;
+        bottom: -60px;
+        margin: auto;
+        z-index: 2;
+      }
+
+      .next {
+        right: 30%;
+      }
+      .prev {
+        left: 30%;
+      }
+
+      .carousel {
+        &__item__zoom {
+          position: relative;
+          width: 90%;
+          margin: 0 auto;
+          transform: scale(1);
+        }
+      }
+
+      .number {
+        position: relative;
+        right: unset;
+        margin-top: 20px;
+        bottom: unset;
+      }
+    }
+  }
+
+  @media screen and (max-width: 639px) {
+    .carouselWrapper {
+      .next {
+        right: 20%;
+      }
+
+      .prev {
+        left: 20%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .carouselWrapper {
+      .next {
+        right: 35px;
+      }
+
+      .prev {
+        left: 35px;
+      }
     }
   }
 }

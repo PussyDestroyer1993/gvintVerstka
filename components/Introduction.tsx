@@ -18,7 +18,6 @@ const Introduction = () => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.imgHolder}/>
             <div className={styles.textHolder}>
                 <h1 className={styles.h1}>Карточная игра по<br/> мотивам игры &quot;Ведьмак&quot;</h1>
                 <p className={styles.p2}>Предварительные выводы неутешительны: базовый вектор развития выявляет
@@ -27,6 +26,7 @@ const Introduction = () => {
                     <Image src="/gvintgame/play.png" alt="" width={"207px"} height={"47px"}/>
                 </a>
             </div>
+            <div className={styles.imgHolder}/>
             <Dialog
                 open={formShow}
                 disableBackdropClick={false}

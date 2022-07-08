@@ -3,6 +3,16 @@
 
   .title {
     margin-bottom: 40px;
+    margin-top: 0;
+  }
+
+  @media screen and (max-width: 1023px) {
+    margin-top: 100px;
+    margin-bottom: 30px;
+
+    .title {
+      margin-bottom: 20px;
+    }
   }
 }
 
@@ -14,14 +24,21 @@
   text-align: center;
   letter-spacing: 0.05em;
   color: #E0E0E0;
+  margin-top: 50px;
+  padding: 0 15px;
+
+  @media screen and (max-width: 639px) {
+    font-size: 26px;
+  }
 }
 
 .groups {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: auto;
   display: flex;
   list-style: none;
-  padding-left: 0px;
+  padding-left: 0;
 
   li {
     margin: 10px;
@@ -38,7 +55,63 @@
       text-align: center;
       cursor: pointer;
       margin-bottom: 20px;
+
+      @media (max-width: 1256px) {
+        a:last-child {
+          > span {
+            display: block!important;
+            overflow: unset!important;
+            width: 90%!important;
+          }
+        }
+      }
     }
+  }
+
+  @media screen and (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.mobileShow {
+  display: none;
+
+  .carousel {
+    &__item {
+      div {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        > a {
+          &:first-child {
+            display: block;
+            width: 230px;
+            margin: 0 auto 30px;
+          }
+          &:last-child {
+            filter: drop-shadow(1px 1px 17px #EB6609);
+          }
+        }
+      }
+    }
+
+    &__control {
+      width: 100%;
+      display: flex;
+      margin: 15px 0 0 0;
+      justify-content: center;
+
+      .next {
+       margin-left: 30px;
+      }
+      .prev {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    display: block;
   }
 }
 
@@ -62,11 +135,20 @@
   text-align: center;
   letter-spacing: 0.05em;
   color: #E0E0E0;
+  padding: 0 15px;
+
+  @media screen and (max-width: 1023px) {
+    margin-top: 80px;
+  }
+
+  @media screen and (max-width: 639px) {
+    font-size: 26px;
+  }
 }
 
 .cardTable {
   max-width: 1400px;
-  width: 100%;
+  width: 80%;
   margin: auto;
 
   &__row {
@@ -139,4 +221,33 @@
     }
   }
 
+  @media screen and (max-width: 850px) {
+    padding: 0;
+    width: calc(100% - 40px);
+    overflow-x: scroll;
+
+
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+
+      &:horizontal {
+        height: 5px;
+        background-color: rgba(255, 255, 255, .21);
+      }
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      border: 0;
+      background-color: #E0E0E0;
+    }
+
+    > div {
+      width: 820px;
+
+      &:last-child{
+        margin-bottom: 20px;
+      }
+    }
+  }
 }

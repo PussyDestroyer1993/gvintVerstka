@@ -3,6 +3,9 @@ import Image from "next/image";
 import cards from "../public/Cards.json";
 import {useRouter} from "next/router";
 import GalleryPage from "../pages/gallery";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {useState} from "react";
+import { Scrollbar } from "react-scrollbars-custom";
 
 interface CardsProps {
     showGallery: boolean,
@@ -16,14 +19,30 @@ interface CardsProps {
 const Cards = (props: CardsProps) => {
 
     const router = useRouter();
+    const [currentSlide, setCurrentSlide] = useState(1)
 
     const goto = (e: any, anchor: string) => {
         e.preventDefault()
+        //@ts-ignore
+        const itemPosition = document.getElementById(anchor) ? (document.getElementById(anchor).offsetTop - 60) : undefined
         window.scrollTo({
-            top: document.getElementById(anchor)?.offsetTop,
+            top: itemPosition,
             behavior: "smooth"
         });
     }
+
+    const next = (e: any) => {
+        const nextSlide = currentSlide + 1
+        if (nextSlide > cards.length) return
+        setCurrentSlide(nextSlide)
+    }
+    const prev = (e: any) => {
+        const nextSlide = currentSlide - 1
+        if (nextSlide < 1) return
+        setCurrentSlide(nextSlide)
+    }
+
+    const imgPrefix = router.pathname == '/' ? '/gvintgame/' : '/'
 
     return (
         <div className={router.pathname == '/' ? styles.mainPageHolder : ''}>
@@ -35,7 +54,7 @@ const Cards = (props: CardsProps) => {
                             <li key={i}>
                                 <a onClick={e => goto(e, c.name)} className={styles.group}>{c.title}</a>
                                 <a onClick={e => goto(e, c.name)}>
-                                    <Image src={`${router.pathname == '/' ? '/gvintgame' : ''}/${c.name}/${c.name}.png`} alt={c.name} width={"326px"}
+                                    <Image src={`${imgPrefix}${c.name}/${c.name}.png`} alt={c.name} width={"326px"}
                                            height={"642"}/>
                                 </a>
                             </li>
@@ -43,10 +62,47 @@ const Cards = (props: CardsProps) => {
                     })
                 }
             </ul>
+            <div className={styles.mobileShow}>
+                <Swiper slidesPerView={1} spaceBetween={20} initialSlide={0}
+                        loop={false}
+                        observer={true} observeParents={true}
+                        onSlideChange={(e) => {
+                            setCurrentSlide(e.activeIndex)
+                        }}
+                        pagination={false} navigation={{
+                    nextEl: `.${styles.next}`,
+                    prevEl: `.${styles.prev}`
+                }}
+                        centeredSlides={true} centeredSlidesBounds={true}
+                        className={styles.carousel}>
+                    {
+                        cards.map((c, i) => {
+                            return (
+                                <SwiperSlide key={i} className={styles.carousel__item}>
+                                    <div>
+                                        <a onClick={e => goto(e, c.name)} className={styles.group}>{c.title}</a>
+                                        <a onClick={e => goto(e, c.name)}>
+                                            <Image src={`${imgPrefix}${c.name}/${c.name}.png`} alt={c.name} width={220} height={390}/>
+                                        </a>
+                                    </div>
+                                </SwiperSlide>
+                            )
+                        })
+                    }
+                </Swiper>
+                <div className={styles.carousel__control}>
+                    <a onClick={e => prev(e)} className={styles.prev} style={{cursor: currentSlide <= cards.length && currentSlide != 1 ? 'pointer' : 'default'}}>
+                        <Image src={`${imgPrefix}prev-${currentSlide <= cards.length && currentSlide != 1 ? 'active' : 'disable'}.png`} alt="" width={"100px"} height={"50px"}/>
+                    </a>
+                    <a onClick={e => next(e)} className={styles.next} style={{cursor: currentSlide < cards.length ? 'pointer' : 'default'}}>
+                        <Image src={`${imgPrefix}next-${currentSlide < cards.length ? 'active' : 'disable'}.png`} alt="" width={"100px"} height={"50px"}/>
+                    </a>
+                </div>
+            </div>
             { props.showGallery && <GalleryPage />}
             { cards.map((c, i) => {
                 return (
-                    <>
+                    <div key={`0-${i}`}>
                         <h1 id={c.name} className={styles.cardTitle}>{c.title}</h1>
                         <div className={styles.cardTable}>
                             <div className={styles.cardTable__row + ' ' + styles.cardTable__row__header}>
@@ -70,7 +126,7 @@ const Cards = (props: CardsProps) => {
                                 })
                             }
                         </div>
-                    </>
+                    </div>
                 )
             }) }
         </div>

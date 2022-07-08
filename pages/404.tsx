@@ -14,7 +14,7 @@ const Page404: NextPage = () => {
             <p>Такой страницы не существует</p>
             <Link href="/">
                 <a>
-                    <Image src="/common/to_main.png" alt="" width={"208px"} height={"48px"}/>
+                    <img src="gvintgame/common/to_main.png" alt="" width={"208px"} height={"48px"}/>
                 </a>
             </Link>
         </div>

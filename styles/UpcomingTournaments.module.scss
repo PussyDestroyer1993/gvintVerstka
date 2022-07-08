@@ -7,6 +7,11 @@
     letter-spacing: 0.05em;
     color: #E0E0E0;
     margin-bottom: 50px;
+    margin-top: 10vh;
+
+    @media screen and (max-width: 639px) {
+        font-size: 26px;
+    }
 }
 
 .tournaments {
@@ -23,8 +28,8 @@
         margin: 20px auto;
         width: 80%;
 
-        > tr {
-            > td {
+         tr {
+             td {
                 font-family: 'Comic Sans MS';
                 font-style: normal;
                 font-weight: 400;
@@ -37,6 +42,10 @@
                 text-fill-color: transparent;
                 border-bottom: 1px solid #4F4F4F;
                 padding: 15px;
+
+                @media screen and (max-width: 500px) {
+                    font-size: 14px;
+                }
 
                 &:first-child {
                     padding-left: 0;
@@ -55,13 +64,14 @@
 
                         span {
                             padding-left: 20px;
+                            width: calc(100% - 70px);
                         }
                     }
                 }
             }
 
             &:last-child {
-                > td {
+                td {
                     border-bottom: none;
                 }
             }
@@ -74,6 +84,25 @@
                 background-color: #E0E0E0!important;
                 width: 3px!important;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .title {
+        position: relative;
+        z-index: 2;
+        margin-top: 70px;
+        margin-bottom: 30px;
+    }
+    .tournaments {
+        padding: 0;
+        width: calc(100% - 40px);
+        position: relative;
+        z-index: 2;
+
+        table {
+            width: 95%;
         }
     }
 }

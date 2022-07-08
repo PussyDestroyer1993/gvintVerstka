@@ -1,5 +1,6 @@
-import styles from '../styles/Footer.module.scss';
-import Image from 'next/image';
+import styles from '../styles/Footer.module.scss'
+import Image from 'next/image'
+import Logo from "../public/Logo.svg";
 import {useRouter} from "next/router";
 import Link from "next/link";
 
@@ -15,10 +16,10 @@ const Footer = () => {
         <footer className={`${styles.footer} mainColor`}>
             <div>
                 <div>
-                    <Image src={`${router.pathname == '/' ? '/gvintgame' : ''}/common/gvintgame.png`} alt="gvintgame" width={"354px"} height={"53px"}/>
+                    <img className={styles.logo} src={'/external/gvintgame/logo.svg'} alt='logo' />
                 </div>
                 <div>
-                    <img className={styles.logo} src={'/external/gvintgame/logo.svg'} alt='logo' />
+                    <Logo className={styles.logo}/>
                 </div>
                 <div>
                     {router.pathname !== "/" && <Link href="/">Об игре</Link> }

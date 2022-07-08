@@ -52,6 +52,7 @@ const Table = () => {
 
     return (
         <table>
+            <tbody>
             {
                 events.map((e, i) => {
                     return (
@@ -69,6 +70,7 @@ const Table = () => {
                     )
                 })
             }
+            </tbody>
         </table>
     )
 }

@@ -1,6 +1,7 @@
 .pageContainer {
   margin: 50px auto 200px;
-  width: 822px;
+  max-width: 822px;
+  width: 80%;
   background: #ffffff;
   border-radius: 35px;
   padding: 20px;
@@ -52,7 +53,12 @@
     text-align: center;
     letter-spacing: 0.07em;
     margin: 0;
-    text-shadow: 1px 1px 2px #B94C00;;
+    text-shadow: 1px 1px 2px #B94C00;
+
+    @media screen and (max-width: 400px) {
+      font-size: 25px;
+      margin-top: 40px;
+    }
   }
 
   form {
@@ -126,4 +132,35 @@
 
 .errorText {
   color: red
+}
+
+@media screen and (max-width: 890px) {
+  .formHolder {
+    h1 {
+      margin: 25px 0 0 0;
+    }
+
+    form {
+      width: 95%;
+      margin-top: 10px;
+
+      > div {
+        flex-direction: column;
+
+        > div {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .pageContainer {
+    .formHolder {
+      h1 {
+        margin-top: 0;
+      }
+    }
+  }
 }

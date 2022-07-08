@@ -5,4 +5,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
+
+  &.geraltBack {
+    background: url("../public/common/404_back_main.png") 100% 0 no-repeat;
+    background-size: cover;
+  }
 }

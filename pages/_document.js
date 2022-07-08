@@ -18,6 +18,7 @@ export default class MyDocument extends Document {
                     <meta name="msapplication-TileColor" content="#ffffff"/>
                     <meta name="theme-color" content="#ffffff"/>
                     <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
+                    <meta name="viewport" content="width=device-width"/>
                 </Head>
                 <body>
                     <Main/>
