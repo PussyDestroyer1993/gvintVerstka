@@ -34,17 +34,6 @@ const Cards = (props: CardsProps) => {
         });
     }
 
-    const next = (e: any) => {
-        const nextSlide = currentSlide + 1
-        if (nextSlide > cards.length) return
-        setCurrentSlide(nextSlide)
-    }
-    const prev = (e: any) => {
-        const nextSlide = currentSlide - 1
-        if (nextSlide < 1) return
-        setCurrentSlide(nextSlide)
-    }
-
     const imgPrefix = router.pathname == '/' ? '/gvintgame/' : '/'
 
     return (
@@ -94,10 +83,10 @@ const Cards = (props: CardsProps) => {
                     }
                 </Swiper>
                 <div className={styles.carousel__control}>
-                    <a onClick={e => prev(e)} className={styles.prev} style={{cursor: currentSlide <= cards.length && currentSlide != 1 ? 'pointer' : 'default'}}>
+                    <a className={styles.prev} style={{cursor: currentSlide <= cards.length && currentSlide != 1 ? 'pointer' : 'default'}}>
                         <Image src={`${imgPrefix}prev-${currentSlide <= cards.length && currentSlide != 1 ? 'active' : 'disable'}.png`} alt="" width={"100px"} height={"50px"}/>
                     </a>
-                    <a onClick={e => next(e)} className={styles.next} style={{cursor: currentSlide < cards.length ? 'pointer' : 'default'}}>
+                    <a className={styles.next} style={{cursor: currentSlide < cards.length ? 'pointer' : 'default'}}>
                         <Image src={`${imgPrefix}next-${currentSlide < cards.length ? 'active' : 'disable'}.png`} alt="" width={"100px"} height={"50px"}/>
                     </a>
                 </div>

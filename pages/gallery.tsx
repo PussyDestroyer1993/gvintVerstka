@@ -21,23 +21,11 @@ function GalleryPage(): JSX.Element{
 
     const imgPrefix = router.pathname.includes('gallery') ? '/' : '/gvintgame/'
 
-    const next = (e: any) => {
-        const nextSlide = currentSlide + 1
-        if (nextSlide > docs.length) return
-        setCurrentSlide(nextSlide)
-    }
-    
-    const prev = (e: any) => {
-        const nextSlide = currentSlide - 1
-        if (nextSlide < 1) return
-        setCurrentSlide(nextSlide)
-    }
-
   return (
       <div className={s.container + (router.pathname.includes('gallery') ? ` ${s.container__page}` : '')}>
         <h1 className={s.title}>Галерея</h1>
         <div className={s.carouselWrapper}>
-            <a onClick={e => prev(e)} className={s.prev} style={{cursor: currentSlide <= docs.length && currentSlide != 1 ? 'pointer' : 'default'}}>
+            <a className={s.prev} style={{cursor: currentSlide <= docs.length && currentSlide != 1 ? 'pointer' : 'default'}}>
                 <Image src={`${imgPrefix}prev-${currentSlide <= docs.length && currentSlide != 1 ? 'active' : 'disable'}.png`} alt="" width={"100px"} height={"50px"}/>
             </a>
             <Swiper slidesPerView={1} spaceBetween={0} initialSlide={currentSlide}
@@ -84,7 +72,7 @@ function GalleryPage(): JSX.Element{
                     `
                 }
             </style>
-            <a onClick={e => next(e)} className={s.next} style={{cursor: currentSlide < docs.length ? 'pointer' : 'default'}}>
+            <a className={s.next} style={{cursor: currentSlide < docs.length ? 'pointer' : 'default'}}>
                 <Image src={`${imgPrefix}next-${currentSlide < docs.length ? 'active' : 'disable'}.png`} alt="" width={"100px"} height={"50px"}/>
             </a>
             <h3 className={s.number}>{(currentSlide) + '/' + docs.length}</h3>

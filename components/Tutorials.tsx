@@ -20,26 +20,11 @@ const Tutorials = () => {
 
     const imgPrefix = router.pathname.includes('tutorials') ? '/' : '/gvintgame/'
 
-    const next = (e: any) => {
-        const nextSlide = currentSlide + 1
-        if (nextSlide > docs.length) return
-        setCurrentSlide(nextSlide)
-    }
-    const prev = (e: any) => {
-        const nextSlide = currentSlide - 1
-        if (nextSlide < 1) return
-        setCurrentSlide(nextSlide)
-    }
-
-    useEffect( () => {
-
-    }, [])
-
     return (
         <div className={styles.container + (router.pathname.includes('tutorials') ? ` ${styles.container__page}` : '')}>
             <h1 className={styles.title}>Руководство по Гвинту</h1>
             <div className={styles.carouselWrapper}>
-                <a onClick={e => prev(e)} className={styles.prev} style={{cursor: currentSlide <= docs.length && currentSlide != 1 ? 'pointer' : 'default'}}>
+                <a className={styles.prev} style={{cursor: currentSlide <= docs.length && currentSlide != 1 ? 'pointer' : 'default'}}>
                     <Image src={`${imgPrefix}prev-${currentSlide <= docs.length && currentSlide != 1 ? 'active' : 'disable'}.png`} alt="" width={"100px"} height={"50px"}/>
                 </a>
                 <Swiper slidesPerView={1} spaceBetween={0} initialSlide={0}
@@ -87,7 +72,7 @@ const Tutorials = () => {
                         `
                     }
                 </style>
-                <a onClick={e => next(e)} className={styles.next} style={{cursor: currentSlide < docs.length ? 'pointer' : 'default'}}>
+                <a className={styles.next} style={{cursor: currentSlide < docs.length ? 'pointer' : 'default'}}>
                     <Image src={`${imgPrefix}next-${currentSlide < docs.length ? 'active' : 'disable'}.png`} alt="" width={"100px"} height={"50px"}/>
                 </a>
                 <h3 className={styles.number}>{(currentSlide) + '/' + docs.length}</h3>
