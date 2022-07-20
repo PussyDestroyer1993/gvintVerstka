@@ -33,7 +33,7 @@ function GalleryPage(): JSX.Element{
                     observer={true} observeParents={true}
                     pagination={false}
                     onSlideChange={(e) => {
-                        setCurrentSlide(e.activeIndex)
+                        setCurrentSlide((window.innerWidth >= 1024 ? e.activeIndex : (e.activeIndex + 1)))
                     }}
                     navigation={{
                         nextEl: `.${s.next}`,

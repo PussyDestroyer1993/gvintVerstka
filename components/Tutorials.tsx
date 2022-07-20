@@ -31,7 +31,7 @@ const Tutorials = () => {
                         loop={false}
                         observer={true} observeParents={true}
                         onSlideChange={(e) => {
-                            setCurrentSlide(e.activeIndex)
+                            setCurrentSlide((window.innerWidth >= 1024 ? e.activeIndex : (e.activeIndex + 1)))
                         }}
                         pagination={false} navigation={{
                             nextEl: `.${styles.next}`,
